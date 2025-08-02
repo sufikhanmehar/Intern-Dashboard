@@ -1,5 +1,23 @@
 // Real API service for backend communication
-const API_BASE_URL = 'http://localhost:3001/api';
+// Use environment-specific API URL
+function getApiBaseUrl() {
+    // Check if running locally
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        return 'http://localhost:3001/api';
+    }
+    
+    // Production API URLs (try multiple hosting services)
+    const productionUrls = [
+        'https://intern-dashboard-backend-production.up.railway.app/api',
+        'https://intern-dashboard-backend.onrender.com/api',
+        'https://intern-dashboard-backend.vercel.app/api'
+    ];
+    
+    // For now, use Railway as primary
+    return productionUrls[0];
+}
+
+const API_BASE_URL = getApiBaseUrl();
 
 class APIService {
     async makeRequest(endpoint) {
