@@ -1,0 +1,67 @@
+# Jekyll Configuration for Intern Dashboard
+title: Intern Dashboard
+description: A comprehensive dashboard for managing intern data and performance metrics
+baseurl: ""
+url: "https://sufikhanmehar.github.io"
+
+# Theme configuration
+theme: jekyll-theme-primer
+remote_theme: pages-themes/primer@v0.6.0
+plugins:
+  - jekyll-remote-theme
+
+# Exclude files and directories from Jekyll processing
+exclude:
+  - backend/
+  - backend/node_modules/
+  - node_modules/
+  - "*.log"
+  - package*.json
+  - CLAUDE.md
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - .git/
+  - .gitignore
+
+# Include specific files that might be excluded by default
+include:
+  - _pages
+
+# Markdown processing
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Collections (if needed for future expansion)
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Site settings
+timezone: UTC
+encoding: utf-8
+
+# GitHub Pages specific settings
+repository: sufikhanmehar/Intern-Dashboard
+github:
+  repository_name: Intern-Dashboard
+  owner_name: sufikhanmehar
